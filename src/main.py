@@ -28,9 +28,23 @@ while True:
             # vypnuti aplikace
             sys.exit()
     
-    # pohyb ctverecku
-    pozice_x += 0.1
-    pozice_y -= 0.1
+    # zjisteni stavu klavesnice
+    klavesnice = pygame.key.get_pressed()
+    
+    # vypinani aplikace klavesou Escape
+    if klavesnice[pygame.K_ESCAPE]:
+        pygame.quit()
+        sys.exit()
+    
+    # pohyb ctverecku klavesnici
+    if klavesnice[pygame.K_LEFT]:
+        pozice_x -= 0.1
+    if klavesnice[pygame.K_RIGHT]:
+        pozice_x += 0.1
+    if klavesnice[pygame.K_UP]:
+        pozice_y -= 0.1
+    if klavesnice[pygame.K_DOWN]:
+        pozice_y += 0.1
     
     # omezeni pohybu ctverecku
     if pozice_x < 0:

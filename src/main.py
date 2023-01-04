@@ -14,6 +14,10 @@ pozice_x = (ROZLISENI_X - rozmer_x) / 2
 pozice_y = (ROZLISENI_Y - rozmer_y) / 2
 rychlost = 5 # pixely / frame
 
+# nacteni textury
+logo = pygame.image.load('../data/logo.png')
+textura = pygame.transform.scale(logo, (rozmer_x, rozmer_y))
+
 # vytvoreni okna (stanoveni rozliseni)
 okno = pygame.display.set_mode(ROZLISENI)
 
@@ -64,9 +68,8 @@ while True:
     #           R    G    B
     okno.fill((255, 255, 255))
     
-    # zobrazeni ctverecku
-    #                kde     barva           pozice             rozmery
-    pygame.draw.rect(okno, (0, 0, 0), (pozice_x, pozice_y, rozmer_x, rozmer_y))
+    # zobrazeni textury
+    okno.blit(textura, (pozice_x, pozice_y))
     
     # refresh zobrazeni
     pygame.display.update()

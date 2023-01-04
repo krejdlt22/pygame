@@ -12,7 +12,7 @@ FPS_COUNT = 60
 rozmer_x = rozmer_y = 50
 pozice_x = (ROZLISENI_X - rozmer_x) / 2
 pozice_y = (ROZLISENI_Y - rozmer_y) / 2
-rychlost = 5 # pixely / frame
+rychlost = 3 # pixely / frame
 
 # nacteni textury
 logo = pygame.image.load('../data/logo.png')
@@ -20,6 +20,8 @@ textura = pygame.transform.scale(logo, (rozmer_x, rozmer_y))
 
 # vytvoreni okna (stanoveni rozliseni)
 okno = pygame.display.set_mode(ROZLISENI)
+pygame.display.set_caption('SPŠ Hide & Seek')
+pygame.display.set_icon(logo)
 
 # pomocny objekt pro nastaveni FPS
 hodiny = pygame.time.Clock()
@@ -68,8 +70,13 @@ while True:
     #           R    G    B
     okno.fill((255, 255, 255))
     
-    # zobrazeni textury
-    okno.blit(textura, (pozice_x, pozice_y))
+    # zobrazeni textur na pozadi
+    for x in range(0, ROZLISENI_X, rozmer_x):
+        for y in range(0, ROZLISENI_Y, rozmer_y):
+            okno.blit(textura, (x, y))
+    else:
+        # zobrazeni pohyblive textury na popredi
+        okno.blit(textura, (pozice_x, pozice_y))
     
     # refresh zobrazeni
     pygame.display.update()

@@ -24,6 +24,10 @@ while True:
     # barva pozadi
     #           R    G    B
     okno.fill((255, 255, 255))
-
+    
+    # zobrazeni ctverecku
+    #                kde     barva      pozice   rozmery
+    pygame.draw.rect(okno, (0, 0, 0), (200, 100, 50, 50))
+    
     # refresh zobrazeni
     pygame.display.update()

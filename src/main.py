@@ -1,20 +1,24 @@
 # pouzite knihovny
 import sys
-
 # pouzity framework
 import pygame
 # spusteni frameworku
 pygame.init()
 
+# pocatecni hodnoty
 ROZLISENI = ROZLISENI_X, ROZLISENI_Y = 800, 600
+FPS_COUNT = 60
+
+rozmer_x = rozmer_y = 50
+pozice_x = 200
+pozice_y = 100
+rychlost = 5 # pixely / frame
 
 # vytvoreni okna (stanoveni rozliseni)
 okno = pygame.display.set_mode(ROZLISENI)
 
-# pocatecni hodnoty
-rozmer_x = rozmer_y = 50
-pozice_x = 200
-pozice_y = 100
+# pomocny objekt pro nastaveni FPS
+hodiny = pygame.time.Clock()
 
 # vykreslovaci smycka
 while True:
@@ -38,13 +42,13 @@ while True:
     
     # pohyb ctverecku klavesnici
     if klavesnice[pygame.K_LEFT]:
-        pozice_x -= 0.1
+        pozice_x -= rychlost
     if klavesnice[pygame.K_RIGHT]:
-        pozice_x += 0.1
+        pozice_x += rychlost
     if klavesnice[pygame.K_UP]:
-        pozice_y -= 0.1
+        pozice_y -= rychlost
     if klavesnice[pygame.K_DOWN]:
-        pozice_y += 0.1
+        pozice_y += rychlost
     
     # omezeni pohybu ctverecku
     if pozice_x < 0:
@@ -66,3 +70,5 @@ while True:
     
     # refresh zobrazeni
     pygame.display.update()
+    # nastaveni max. poctu snimku za sekundu
+    hodiny.tick(FPS_COUNT)

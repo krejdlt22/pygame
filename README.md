@@ -1,0 +1,1 @@
+# Jednoduchá aplikace v Pygame

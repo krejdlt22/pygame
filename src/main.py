@@ -10,8 +10,8 @@ ROZLISENI = ROZLISENI_X, ROZLISENI_Y = 800, 600
 FPS_COUNT = 60
 
 rozmer_x = rozmer_y = 50
-pozice_x = 200
-pozice_y = 100
+pozice_x = (ROZLISENI_X - rozmer_x) / 2
+pozice_y = (ROZLISENI_Y - rozmer_y) / 2
 rychlost = 5 # pixely / frame
 
 # vytvoreni okna (stanoveni rozliseni)

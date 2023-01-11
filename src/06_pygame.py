@@ -82,3 +82,4 @@ while True:
     pygame.display.update()
     # nastaveni max. poctu snimku za sekundu
     hodiny.tick(FPS_COUNT)
+

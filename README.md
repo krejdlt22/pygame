@@ -1,1 +1,1 @@
-# Jednoduchá aplikace v Pygame
+# Výuka základů programování v jazyce Python
